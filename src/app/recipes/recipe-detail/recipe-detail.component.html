@@ -27,10 +27,11 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
-    <h5>Ingredients</h5>
-    <ul *ngFor="let ing of recipe.ingredients">
-      <li>{{ ing.name }}</li>
+  <div class="col-xs-10">
+    <hr>
+    <h3>Ingredients</h3>
+    <ul *ngFor="let ing of recipe.ingredients" class="list-group">
+      <a class="list-group-item" style="cursor: pointer">{{ ing.name }} ({{ ing.amount }})</a>
     </ul>
   </div>
 </div>

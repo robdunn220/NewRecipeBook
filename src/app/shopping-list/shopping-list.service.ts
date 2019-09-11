@@ -28,7 +28,7 @@ export class ShoppingListService {
     for (const i of this.ingredients) {
       if (ingredients.name === i.name) {
         i.amount += ingredients.amount;
-        return false;
+        return;
       }
     }
 

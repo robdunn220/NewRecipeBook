@@ -11,7 +11,7 @@ export class RecipeDetailComponent implements OnInit {
   @Input() recipe: Recipe;
 
   addToList() {
-    this.recipeService.addToList(this.recipe.ingredients);
+    this.recipeService.addToList(this.recipe.ingredients.slice());
   }
 
   constructor(private recipeService: RecipeService) { }

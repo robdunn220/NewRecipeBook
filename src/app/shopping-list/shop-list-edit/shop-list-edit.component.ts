@@ -8,8 +8,9 @@ import { ShoppingListService } from '../shopping-list.service';
   styleUrls: ['./shop-list-edit.component.css']
 })
 export class ShopListEditComponent implements OnInit {
-  @ViewChild('nameInput') nameInputRef: ElementRef;
-  @ViewChild('amountInput') amountInputRef: ElementRef;
+  nameInput: string;
+  amountInput: number;
+  errorMessage: string;
 
   constructor(private shopListService: ShoppingListService) { }
 
@@ -17,8 +18,15 @@ export class ShopListEditComponent implements OnInit {
   }
 
   onAddItem() {
-    const newIngredient = new Ingredient(this.nameInputRef.nativeElement.value, Number(this.amountInputRef.nativeElement.value));
-    this.shopListService.checkShopList(newIngredient);
+    if (this.amountInput && this.nameInput) {
+      const newIngredient = new Ingredient(this.nameInput, this.amountInput);
+      this.shopListService.checkShopList(newIngredient);
+      this.nameInput = '';
+      this.amountInput = null;
+      this.errorMessage = '';
+    } else {
+      this.errorMessage = 'You must fill out both fields.';
+    }
   }
 
   onDeleteItem() {
