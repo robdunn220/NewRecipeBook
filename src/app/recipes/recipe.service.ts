@@ -19,11 +19,16 @@ export class RecipeService {
       new Ingredient('Olive Oil', 1),
       new Ingredient('Rosemary', 3)
     ]),
-    new Recipe(2, 'Morp', 'Meep', 'image path here', [new Ingredient('Garlic', 4)])
+    // tslint:disable-next-line:max-line-length
+    new Recipe(2, 'Morp', 'Meep', 'https://steemitimages.com/DQmfHedFJStzXRDC2R5fnWrAiYJqWaknPaYTfeQWQe8Boxh/flat%2C800x800%2C075%2Cf.u1.jpg', [new Ingredient('Garlic', 4)])
   ];
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipe(index: number) {
+    return this.recipes[index];
   }
 
   addToList(ingredients: Ingredient[]) {
