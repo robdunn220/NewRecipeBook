@@ -30,5 +30,6 @@ export class ShopListEditComponent implements OnInit {
   }
 
   onDeleteItem() {
+    console.log('Hello');
   }
 }

@@ -25,6 +25,11 @@ export class ShoppingListService {
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
+  removeFromList(ingredient: Ingredient) {
+    this.ingredients.splice(this.ingredients.indexOf(ingredient), 1);
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
   checkShopList(ingredients: Ingredient) {
     for (const i of this.ingredients) {
       if (ingredients.name === i.name) {
